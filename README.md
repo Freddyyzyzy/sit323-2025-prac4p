@@ -1,25 +1,114 @@
-1. Project Overview -
-A simple Calculator Microservice built with Node.js and Express.
-Provides basic arithmetic operations via REST API.
-Handles errors for invalid input and division by zero.
+# Calculator Microservice
 
-2. Setup Instructions-
-Step 1: Clone the Repository
-git clone https://github.com/yourusername/sit323-2025-prac4p.git
-cd sit323-2025-prac4p
-Step 2: Install Dependencies
-npm install
-Step 3: Run the Microservice
-node server.js
-Server will run on http://localhost:3000/
+## Overview
+A simple RESTful calculator microservice built with Node.js and Express that provides basic arithmetic operations via API endpoints.
 
-3. Error Handling-
-Invalid input (non-numeric values) -
-{ "error": "Invalid input. Please provide valid numbers." }
+## Features
+- Addition (`/add`)
+- Subtraction (`/subtract`)
+- Multiplication (`/multiply`)
+- Division (`/divide`)
+- Input validation and error handling
+- Clear API documentation at root endpoint
 
-Missing parameters-
-{ "error": "Invalid input. Please provide valid numbers." }
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/sit323-2025-prac4p.git
+   cd sit323-2025-prac4p
+   ```
 
-Division by zero-
-{ "error": "Division by zero is not allowed." }
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
+3. Start the server:
+   ```bash
+   npm start
+   ```
+
+## API Endpoints
+
+### Base URL
+`http://localhost:3000`
+
+### Available Operations
+
+#### Addition
+```
+GET /add?num1={number}&num2={number}
+```
+Example:
+```
+http://localhost:3000/add?num1=5&num2=3
+```
+Response:
+```json
+{"result":8}
+```
+
+#### Subtraction
+```
+GET /subtract?num1={number}&num2={number}
+```
+Example:
+```
+http://localhost:3000/subtract?num1=5&num2=3
+```
+Response:
+```json
+{"result":2}
+```
+
+#### Multiplication
+```
+GET /multiply?num1={number}&num2={number}
+```
+Example:
+```
+http://localhost:3000/multiply?num1=4&num2=5
+```
+Response:
+```json
+{"result":20}
+```
+
+#### Division
+```
+GET /divide?num1={number}&num2={number}
+```
+Example:
+```
+http://localhost:3000/divide?num1=10&num2=2
+```
+Response:
+```json
+{"result":5}
+```
+
+## Error Handling
+The API returns appropriate error messages for:
+- Invalid numeric input (non-number values)
+- Division by zero attempts
+
+Example error responses:
+```json
+{"error":"Invalid input. Please provide valid numbers."}
+{"error":"Division by zero is not allowed."}
+```
+
+## Usage Examples
+Using cURL:
+```bash
+curl "http://localhost:3000/add?num1=5&num2=3"
+```
+
+Using browser:
+Simply visit the endpoint URLs in your web browser.
+
+## Dependencies
+- Express.js
+
+## License
+ISC
